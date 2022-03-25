@@ -66,6 +66,18 @@
             
         }
       
+      // se for gerar de 1 à 100
+        for (let index = 0; index < 101; index++) {
+            document.write(index + '<br></br>');
+            
+        }
+
+        // se for com numeros pares
+        for (let index = 1; index < 101; index++) {
+            if(inder% 2 === 0) {
+            document.write(index + '<br></br>');
+            }
+        }
     </script>
 </body>
 </html>'
