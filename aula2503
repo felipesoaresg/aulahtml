@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <script>
+
+        let meuNome = 'Felipe'
+        let cores =['azul', 'amarelo', 'branco','vermelho'];
+        let media = 9;
+
+            /*
+            Se o aluno tirou menos que 5 ---> escrever reprovado
+            Se for = 5 ---> passou raspando
+            Se for >5 <8 ---> mostrar bom rapaz
+            Se for > 8 ---> Voce é o cara
+            */
+            // || ---> significa OU
+            // && ---> significa E
+            
+
+        if(media > 6 && media <8){
+            document.write('Passou.')
+        }
+
+        document.write('<h1>Ariola Grande</h1>');
+        document.write(cores);
+        document.write("<p style='color:#f56'>Felipe</p>");
+
+    </script>
+</body>
+</html>
