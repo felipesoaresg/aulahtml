@@ -22,16 +22,24 @@
             */
             // || ---> significa OU
             // && ---> significa E
-            
+
 
         if(media > 6 && media <8){
             document.write('Passou.')
+        }
+        else if(media < 5){
+            document.write('Reprovado.')
+        }
+        else if(media === 5){
+            document.write('Passou Raspando.')
+        }
+        else if(media > 8){
+            document.write('Você é o cara.')
         }
 
         document.write('<h1>Ariola Grande</h1>');
         document.write(cores);
         document.write("<p style='color:#f56'>Felipe</p>");
-
     </script>
 </body>
 </html>
