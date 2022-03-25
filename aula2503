@@ -58,7 +58,6 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="text">
     <script>
         let minhalista = ['Azul', 'Planta', 'Cinema','Amor', 'Paixão','Novela', 'Maça','Celular','Etec', 'Feliz', 'Computador']
 
