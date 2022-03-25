@@ -13,7 +13,9 @@
         let meuNome = 'Felipe'
         let cores =['azul', 'amarelo', 'branco','vermelho'];
         let media = 9;
-
+        
+        media = prompt ("digite a média", "aqui a média");
+        
             /*
             Se o aluno tirou menos que 5 ---> escrever reprovado
             Se for = 5 ---> passou raspando
@@ -43,3 +45,28 @@
     </script>
 </body>
 </html>
+
+
+*OUTRA LISTA*
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <script>
+        let minhalista = ['Azul', 'Planta', 'Cinema','Amor', 'Paixão','Novela', 'Maça','Celular','Etec', 'Feliz', 'Computador']
+
+        for (let index = 0; index < minhalista.length; index++) {
+            document.write(minhalista[index] + "<br></br>");
+            
+        }
+      
+    </script>
+</body>
+</html>'
