@@ -64,29 +64,34 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
 class MyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.white,
-      elevation: 5,
-      child: Container(
-        width: 200,
-        height: 350,
-          child: Column(children:[
-              Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTdB5q3MoxeGhJLZFDtm2eA2y7MGKwe73rtg&usqp=CAU'),
-              Divider(color: Colors.black),
-            Row (children:[
-              const Text("Ariola"),
-              const Text('Grande'),
-            ]),
-            const Icon(
-             Icons.add,
-              color: Colors.grey,
-              size: 30.0,
-            ),
-      ])
-        );
+        color: Colors.white,
+        elevation: 5,
+        child: Container(
+            width: 200,
+            height: 350,
+            child: Column(children: [
+              Image.network(
+                  'https://upload.wikimedia.org/wikipedia/pt/6/64/Capa_de_Thank_U%2C_Next.png'),
+              const Divider(color: Colors.grey),
+              Column(children: [
+                const Text('thank u, next',
+                    style: TextStyle(
+                      color: Colors.pink,
+                    )),
+                const Text('Ariana Grande',
+                    style: TextStyle(
+                      color: Colors.pink,
+                    )),
+                const Icon(
+                Icons.lock_open,
+                color: Colors.pink,
+                size:30.0,
+                )
+              ]),
+            ])));
   }
 }
