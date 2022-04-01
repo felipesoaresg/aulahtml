@@ -37,3 +37,56 @@ class MyWidget extends StatelessWidget {
       ]) 
     );
   }
+
+// OUTRO WIDGET
+
+import 'package:flutter/material.dart';
+
+const Color darkBlue = Color.fromARGB(255, 18, 32, 47);
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: darkBlue,
+      ),
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Center(
+          child: MyWidget(),
+        ),
+      ),
+    );
+  }
+}
+
+class MyWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: Colors.white,
+      elevation: 5,
+      child: Container(
+        width: 200,
+        height: 350,
+          child: Column(children:[
+              Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTdB5q3MoxeGhJLZFDtm2eA2y7MGKwe73rtg&usqp=CAU'),
+              Divider(color: Colors.black),
+            Row (children:[
+              const Text("Ariola"),
+              const Text('Grande'),
+            ]),
+            const Icon(
+             Icons.add,
+              color: Colors.grey,
+              size: 30.0,
+            ),
+      ])
+        );
+  }
+}
