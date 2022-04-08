@@ -72,3 +72,10 @@ miranhas(String nome, String cargo, String tel, String email, Color cor) {
         ]),
       ]));
 }
+
+COLOCAR IMAGEM DE FUNDO
+
+image: DecorationImage(
+                  image: NetworkImage('https://img.cybercook.com.br/receitas/152/hamburguer-de-carne-moida-2-623x350.jpeg'),
+                  fit: BoxFit.cover
+                ),
