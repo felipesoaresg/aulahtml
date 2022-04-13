@@ -43,12 +43,13 @@ container() {
       padding: const EdgeInsets.all(10.0),
       margin: const EdgeInsets.all(10.0),
       child: Column(children: [
-        Icon(
-        Icons.bookmark_border,
+         Icon(
+           /*mainAxisAlignment: MainAxisAlignment.end,*/
+          Icons.bookmark_border,
           color: Colors.blueAccent,
         size:40.0
         ),
-        SizedBox(height: 150),
+        SizedBox(height: 140),
         Text ('Social Security Is Rethinking How It Runs Customer Service After Covid',
              style: TextStyle(
              fontSize: 40,
@@ -63,7 +64,16 @@ container() {
             Text ('USA'),
             Text ('TODAY'),
           ]),
-          
+          Text ('4h ago'),
+        ]),
+        
+        SizedBox(height: 20),
+        Row( /*mainAxisAlignment: MainAxisAlignment.center,*/
+          children: [
+          Text ('Mary Walton'),
+          Text ('6 min Reads'),
+          Text  ('64 Upvote'),
         ])
       ]));
 }
+    
