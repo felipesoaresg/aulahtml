@@ -1,0 +1,113 @@
+import 'package:flutter/material.dart';
+
+const Color darkBlue = Color.fromARGB(255, 18, 32, 47);
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: darkBlue,
+      ),
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Center(
+          child: MyWidget(),
+        ),
+      ),
+    );
+  }
+}
+
+class MyWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(40),
+      color: Colors.white,
+      ),
+      width: 650,
+      height: 650,
+      child: Column( children: [ 
+        Row (children:[retangulo()]),
+        Row (children:[quadrado()]),
+        Row (children:[]),
+        Row (children:[]),
+        Row (children:[quadradodois()]),
+      ])
+    );
+  }
+  
+ retangulo () {
+    return Container(
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(20),
+      color: Colors.orange,
+      ),
+      width: 200,
+      height: 80,);
+      }
+  
+    
+ quadrado () {
+    return Container(
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(20),
+      color: Colors.orange,
+      ),
+      width: 80,
+      height: 80,);
+      }
+  
+ quadradodois () {
+    return Container(
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(20),
+      color: Colors.orange,
+      ),
+      width: 150,
+      height: 150,
+    child: Column (children: [
+      SizedBox (height: 10 ),
+      Row (mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+        Container(
+        width: 60,
+        height: 60,
+        decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: Colors.pink,
+        )),
+        Container(
+        width: 60,
+        height: 60,
+        decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: Colors.red,
+        )),
+      ]),
+       
+       SizedBox (height: 10 ),
+       Row (mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+        Container(
+        width: 60,
+        height: 60,
+        decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: Colors.blue,
+        )),
+        Container(
+        width: 60,
+        height: 60,
+        decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: Colors.green,
+        )),
+      ]),
+    ]));
+      }
+}
