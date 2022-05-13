@@ -1,0 +1,50 @@
+import 'package:flutter/material.dart';
+
+const Color darkBlue = Color.fromARGB(255, 18, 32, 47);
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: darkBlue,
+      ),
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Center(
+          child: MyWidget(),
+        ),
+      ),
+    );
+  }
+}
+
+class MyWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return 
+      decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(40)),
+      width: 500,
+      height: 500,
+      padding: const EdgeInsets.all(10.0),
+      margin: const EdgeInsets.all(10.0),
+      Container( child: 
+      Column (children: [
+        Image.network('https://64.media.tumblr.com/22817bfe4d7c917e2db690922d652c0c/6d13f3affa8c5aaf-40/s500x750/4274e90c80bedfd0d38f180616617874bea6c435.png'),
+        Text('Nome:'),
+        Text('Telefone:'),
+        Text('Email:'),
+    ]),
+    );
+    Row(children:[
+      ElevatedButton(child: const Icon(Icons.group), onPressed: (){}),
+      ElevatedButton(child: const Icon(Icons.favorite), onPressed: (){}),
+      ElevatedButton(child: const Icon(Icons.block), onPressed: (){}),
+    ]);
+  }
+}
