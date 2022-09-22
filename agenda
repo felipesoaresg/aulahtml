@@ -1,91 +1,116 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'dart:html';
 
-const Color darkBlue = Color.fromARGB(255, 18, 32, 47);
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
+Future<http.Response> enviarResposta(String title) async {
+  var resposta = await http.get(
+    Uri.parse('http://10.0.3.132:1313/listar-alunos'),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+  );
+
+  print(resposta.body.toString());
+
+  return resposta;
+}
+
+Future<http.Response> pegarDados(String title) async {
+  var envio = await http.post(
+    Uri.parse('http://10.0.3.132:1313/save-data'),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+    body: jsonEncode(<String, String>{
+      'nome:': nome,
+      'email': email,
+      'telefone': telefone,
+      'turma': turma,
+    }),
+  );
+
+  print(envio.body.toString());
+
+  return envio;
+}
+class Agenda {
+  String nome = '';
+  int telefone;
+  String email = '';
+  String turma = '';
+
+  Agenda(this.nome, this.telefone, this.email, this.turma);
+}
+
+  final nome = TextEditingController();
+  final telefone = TextEditingController();
+  final email = TextEditingController();
+  final turma = TextEditingController();
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+
+  MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: darkBlue,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: MyWidget(),
-        ),
-      ),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class Agenda {
-  String nome = '';
-  int telefone;
-  String email = '';
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  final String title;
 
-  Agenda(this.nome, this.telefone, this.email);
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class MyWidget extends StatelessWidget {
-  
-  final addNome = TextEditingController();
-  final addTel = TextEditingController();
-  final addEmail = TextEditingController();
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-
-      
-      Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: TextField(
-          controller: addNome, 
-          decoration: const InputDecoration(
-            border: OutlineInputBorder(),
-            labelText: 'Nome',
-          ),
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
       ),
-       Padding(
-        padding:const EdgeInsets.all(16.0),
-        child: TextField(
-          controller: addTel,
-          decoration: const InputDecoration(
-            border: OutlineInputBorder(),
-            labelText: 'Telefone',
-          ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Nome:'),
+            TextField(),
+            Text('Email:'),
+            TextField(),
+            Text('Telefone:'),
+            TextField(),
+            Text('Turma:'),
+            TextField(),
+            ElevatedButton(
+                child: const Icon(Icons.check, color: Colors.green),
+                onPressed: () async {
+                  pegarDados();
+                }),
+          ],
         ),
-      ),
-      Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: TextField(
-            controller: addEmail,
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-              labelText: 'E-mail ',
-            ),
-          )),
-      ElevatedButton(
-          //cria o botão-
-          child: const Text('Adicionar'),
-          onPressed: () {
-            
-            //print(addTel.text);
-          }),
-      
-      SizedBox(height: 15),
-      
-      ElevatedButton(
-          //cria o botão-
-          child: const Text('Mostrar'),
-          onPressed: () {
-           
-          }),
-    ]);
+      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
   }
 }
